@@ -2,7 +2,6 @@
 import { DeleteTransaction } from '@/actions/DeleteTransaction'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,  } from '@/components/ui/alert-dialog'
 import { buttonVariants } from '@/components/ui/button'
-import { TransactionType } from '@/lib/types'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import React, { SetStateAction } from 'react'
 import { toast } from 'sonner'
