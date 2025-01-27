@@ -17,7 +17,7 @@ import CreateCategoryDialog from "../_components/CreateCategoryDialog";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { Category } from "@/prisma/generate/client";
+import { Category } from "@prisma/client";
 import DeleteCategoryDialog from "./_components/DeleteCategoryDialog";
 
 const page = () => {

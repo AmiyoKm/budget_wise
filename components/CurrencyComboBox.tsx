@@ -26,9 +26,9 @@ import { Currencies, Currency } from "@/lib/currencies"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { CreateUserSettings } from "@/actions/CreateUserSettings"
 import SkeletonWrapper from "./SkeletonWrapper"
-import { UserSettings } from "@/prisma/generate/client"
 import { UpdateUserCurrency } from "@/actions/UpdateUserCurrency"
 import { toast } from "sonner"
+import { UserSettings } from "@prisma/client"
 
 
 export function CurrencyComboBox() {

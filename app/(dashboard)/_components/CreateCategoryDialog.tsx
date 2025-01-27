@@ -17,7 +17,7 @@ import data from "@emoji-mart/data"
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { CreateCategory } from '@/actions/CreateCategory'
 import { toast } from 'sonner'
-import { Category } from '@/prisma/generate/client'
+import { Category } from '@prisma/client'
 import { useTheme } from 'next-themes'
 const CreateCategoryDialog = ({type , successCallback , trigger}: {type :TransactionType , successCallback : (category:Category)=> void ,trigger? : ReactNode}  ) => {
     const [open , setOpen] = useState(false)

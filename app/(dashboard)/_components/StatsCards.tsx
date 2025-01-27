@@ -1,7 +1,7 @@
 "use client"
 import { DateToUTCDate, GetFormatterCurrency } from "@/lib/helpers/date"
 import { GetDateRangeStats } from '@/actions/GetDateRangeStats'
-import { UserSettings } from '@/prisma/generate/client'
+import { UserSettings } from '@prisma/client'
 import { useQuery } from '@tanstack/react-query'
 import React, { ReactNode, useCallback, useMemo } from 'react'
 import SkeletonWrapper from "@/components/SkeletonWrapper"
