@@ -65,17 +65,17 @@ export function CreateTransactionDialog({ trigger, type }: Props) {
     mutationKey : ["transaction"],
     mutationFn : CreateTransaction,
     onSuccess :async()=>{
+      setOpen(prev => !prev)
       toast.success("Transaction created successfully 🚀", {id : "create-transaction"})
+      await queryClient.invalidateQueries({
+        queryKey : ["overview"]
+      })
       form.reset({
         type ,
         description : "",
         date : new Date(),
         category : undefined
       })
-      await queryClient.invalidateQueries({
-           queryKey : ["overview"]
-       })
-        setOpen(prev => !prev)
     }
   })
   const onSubmit = useCallback((value : CreateTransactionSchemaType)=>{
