@@ -10,7 +10,6 @@ import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover
 
 import { format } from 'date-fns';
 import { addMonths, addWeeks, addYears } from 'date-fns';
-import { useTheme } from 'next-themes';
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
 import { createBudgetSchema, CreateBudgetSchemaType } from '@/schema/budget';
@@ -195,7 +194,7 @@ const UpdateBudgetDialog = ({budget , trigger} : {budget : Budget , trigger : Re
     label: string;
     form: Form;
   }) {
-    const theme = useTheme();
+
     return (
       <FormField
         control={control}
@@ -227,7 +226,6 @@ const UpdateBudgetDialog = ({budget , trigger} : {budget : Budget , trigger : Re
                 </PopoverTrigger>
                 <PopoverContent className="w-full p-4 bg-white border border-gray-300 rounded-md shadow-lg">
                   <Picker data={data} 
-                    theme={theme.resolvedTheme}
                     onEmojiSelect={(emoji: { native: string }) => {
                       field.onChange(emoji.native);
                     }}

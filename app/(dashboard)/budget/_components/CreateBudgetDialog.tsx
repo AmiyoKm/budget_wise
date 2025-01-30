@@ -31,7 +31,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useTheme } from "next-themes";
+
 import {
   Select,
   SelectContent,
@@ -208,7 +208,7 @@ function EmojiPickerFormField({
   label: string;
   form: Form;
 }) {
-  const theme = useTheme();
+
   return (
     <FormField
       control={control}
@@ -241,7 +241,6 @@ function EmojiPickerFormField({
               <PopoverContent className="w-full p-4 bg-white border border-gray-300 rounded-md shadow-lg">
                 <Picker
                   data={data}
-                  theme={theme.resolvedTheme}
                   onEmojiSelect={(emoji: { native: string }) => {
                     field.onChange(emoji.native);
                   }}
