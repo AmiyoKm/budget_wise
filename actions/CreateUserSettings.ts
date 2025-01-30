@@ -12,6 +12,7 @@ export async function CreateUserSettings(){
         redirect("/sign-in")
     }
 
+   try {
     let userSettings = await prisma.userSettings.findUnique({
         where : {
             userId : user.id
@@ -28,4 +29,7 @@ export async function CreateUserSettings(){
     revalidatePath("/")
 
     return userSettings
+   } catch (error) {
+    redirect("/wizard")
+   }
 }

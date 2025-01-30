@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 const SkeletonWrapper = ({children , isLoading , fullWidth = true} : {children : ReactNode , isLoading: boolean , fullWidth? :boolean }) => {
     if(!isLoading) return children
   return (
-    <Skeleton className={cn(fullWidth && "w-full")}>
+    <Skeleton className={cn("rounded-xl",fullWidth && "w-full")}>
         <div className="opacity-0">{children}</div>
     </Skeleton>
   )

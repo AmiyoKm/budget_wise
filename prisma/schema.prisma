@@ -1,17 +1,14 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider       = "postgresql"
-  url            = env("POSTGRES_PRISMA_URL")
-  directUrl      = env("POSTGRES_URL_NON_POOLING")
+  provider = "postgres"
+  url      = env("POSTGRES_PRISMA_URL")
+directUrl   = env("POSTGRES_URL_NON_POOLING")
 }
 
 model UserSettings {
@@ -45,21 +42,44 @@ model Transaction {
 }
 
 model MonthHistory {
-  userId   String
-  day      Int
-  month    Int
-  year      Int
-  income    Float
+  userId  String
+  day     Int
+  month   Int
+  year    Int
+  income  Float
   expense Float
-  @@id([day , month , year , userId])
+
+  @@id([day, month, year, userId])
 }
 
 model YearHistory {
-  userId   String
-  month    Int
-  year      Int
-  income    Float
+  userId  String
+  month   Int
+  year    Int
+  income  Float
   expense Float
-  @@id([ month , year , userId])
+
+  @@id([month, year, userId])
 }
 
+enum TimePeriod {
+  MONTH
+  WEEK
+  YEAR
+  CUSTOM
+}
+
+model Budget {
+  id          String @id @default(cuid())
+  userId       String
+  name          String
+  icon          String
+  startDate    DateTime @default(now())
+  endDate      DateTime
+  amount       Int
+  spent        Int @default(0)
+  addSpendingDate   DateTime?
+  timePeriod   TimePeriod 
+  updatedAt      DateTime @default(now())
+  @@unique([userId, name , icon])
+}

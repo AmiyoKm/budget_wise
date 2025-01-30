@@ -2,6 +2,7 @@ import { CurrencyComboBox } from '@/components/CurrencyComboBox'
 import Logo from '@/components/Logo'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { ColourfulText } from '@/components/ui/ColorfulText'
 import { Separator } from '@/components/ui/separator'
 import { currentUser } from '@clerk/nextjs/server'
 import Link from 'next/link'
@@ -17,7 +18,7 @@ const page = async () => {
     <div className='container flex max-w-2xl flex-col items-center justify-between gap-4'>
         <div>
 
-        <h1 className='text-center text-3xl'>Welcome , <span>{user.firstName}! 👋</span> </h1>
+        <h1 className='text-center text-5xl'><ColourfulText text='Welcome' /> , {user.firstName }!  </h1>
         <h2 className='mt-4 text-center text-base text-muted-foreground'>Let&apos;s get started by setting up your currency</h2>
         <h2 className='mt-4 text-center text-sm text-muted-foreground'>You can change these settings at any time</h2>
         </div>
